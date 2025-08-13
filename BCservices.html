@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!--
+      Author: Alberto Gonzalez
+      Date:   03/06/2025
+
+      Filename: BCservices.html
+   -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bevil's Custom</title>
+    <link  href="BCstylesheet.css" rel="stylesheet">
+    <script src="BCservices.js" defer></script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="BevilsCustom.html">Home</a></li>
+            <li><a href="BCservices.html">Services</a></li>
+            <li><a href="BCquotes.html">Pricing Quote</a></li>
+            <li><a href="BCcustomorder.html">Custom Order</a></li>
+            <li><a href="BCaboutme.html">About Me</a></li>
+            <li><a href="BCcontactus.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    
+    <div id="content">
+        <h1>Services</h1>
+        <p>We specialize in custom metal work, carports, fences, ranch signs, car parts, and more.</p>
+        
+        <label for="serviceSelector">Select a Service:</label>
+        <select id="serviceSelector" onchange="showServiceInfo()">
+            <option value="">--Select a Service--</option>
+            <option value="carports">Carports</option>
+            <option value="fences">Fences</option>
+            <option value="ranchSigns">Ranch Signs</option>
+            <option value="carParts">Car Parts</option>
+            <option value="metalArt">Metal Art</option>
+        </select>
+        
+        <p id="serviceDescription">Select a service to see more details.</p>
+    </div>
+</body>
+</html>

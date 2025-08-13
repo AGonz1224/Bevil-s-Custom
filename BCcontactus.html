@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!--
+      Author: Alberto Gonzalez
+      Date:   03/10/2025
+
+      Filename: BCcontactus.html
+   -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bevil's Custom</title>
+    <link  href="BCcontactus.css" rel="stylesheet">
+    <script src="BCcontactus.js" defer></script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="BevilsCustom.html">Home</a></li>
+            <li><a href="BCservices.html">Services</a></li>
+            <li><a href="BCquotes.html">Pricing Quote</a></li>
+            <li><a href="BCcustomorder.html">Custom Order</a></li>
+            <li><a href="BCaboutme.html">About Me</a></li>
+            <li><a href="BCcontactus.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    
+    <h2>Contact Me</h2>
+    <form id="contactForm" onsubmit="validateForm(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email">
+        <br>
+        <label for="service">Service:</label>
+        <select id="service" name="service">
+            <option value="">--Select Service--</option>
+            <option value="carport">Carport</option>
+            <option value="fences">Fences</option>
+            <option value="ranch signs">Ranch Signs</option>
+            <option value="custom auto-parts">Custom Auto-Parts</option>
+            <option value="metal arts">Metal Arts</option>
+            <option value="other">Other</option>
+        </select>
+        <br>
+        <label>Business Type:</label>
+        <input type="radio" id="commercial" name="businessType" value="commercial">
+        <label for="commercial">Commercial</label>
+        <input type="radio" id="personal" name="businessType" value="personal">
+        <label for="personal">Personal</label>
+        <br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message"></textarea>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="errorMessages"></div>
+</body>
+</html>
