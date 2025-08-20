@@ -1,101 +1,44 @@
-/*
-Author: Alberto Gonzalez
-Date:   03/10/2025
+/* About page tweaks (inherits BCstylesheet.css theme) */
+/* Author: Alberto Gonzalez | Updated: 08/20/2025 */
 
-Filename: BCstylesheet.css
-/*
-
-/* General Page Styling */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-    color: #333;
-}
-
-/* Navigation Bar Styling */
-nav {
-    background-color: #333;
-    padding: 15px;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: #f39c12;
-}
-
-/* Bio Section Styling */
-.bio-section {
-    padding: 40px;
-    text-align: center;
-    background-color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    margin: 20px auto;
+.about-wrap {
+    max-width: 1000px;
+  }
+  
+  .bio-card {
     max-width: 900px;
-}
-
-.bio-container {
-    margin-top: 20px;
+    margin: 20px auto;
+  }
+  
+  .bio-card h1 {
+    color: #39FF14;       /* neon accent heading */
+    margin-bottom: 12px;
+  }
+  
+  .bio-container {
     text-align: left;
     font-size: 18px;
-    line-height: 1.6;
-}
-
-h1 {
-    font-size: 32px;
-    color: #222;
-    margin-bottom: 20px;
-}
-
-p {
-    color: #555;
-}
-
-/* Footer Styling */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .bio-section {
-        padding: 20px;
-        margin: 10px;
-    }
-
-    h1 {
-        font-size: 28px;
-    }
-
-    .bio-container {
-        font-size: 16px;
-    }
-}
+    line-height: 1.7;
+    color: #f2f2f2;
+  }
+  
+  .bio-container p + p {
+    margin-top: 14px;     /* comfortable paragraph spacing */
+  }
+  
+  /* Optional: add a subtle divider under the heading */
+  .bio-card h1::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 80px;
+    background: #39FF14;
+    margin-top: 10px;
+    border-radius: 2px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .bio-container { font-size: 16px; }
+  }
+  

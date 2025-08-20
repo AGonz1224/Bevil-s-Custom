@@ -1,92 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <!--
-      Author: Alberto Gonzalez
-      Date started:   03/06/2025
-      Date updated:   03/15/2025
+  <!--
+    Author: Alberto Gonzalez
+    Date started: 03/06/2025
+    Date updated: 08/20/2025
+    Filename: index.html
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bevil's Custom</title>
 
-      Filename: BevilsCustom.html
-   -->
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bevil's Custom</title>
-    <link  href="BCstylesheet.css" rel="stylesheet">
-    <link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet" />
-    <style>
-        #map {
-            height: 400px;
-            margin-left: 25%;
-            width: 50%;
-        }
-        #location-info {
-            margin-top: 10px;
-            font-size: 18px;
-        }
-    </style>
+  <!-- Site stylesheets -->
+  <link href="BCstylesheet.css" rel="stylesheet" />
 </head>
 <body>
+
+  <!-- Header with logo + nav -->
+  <header>
+    <div class="logo">
+      <img src="logo.jpg" alt="Bevil's Custom Fabrication logo" />
+      <span class="brand">Bevil's Custom Fabrication</span>
+    </div>
     <nav>
-        <ul>
-            <li><a href="BevilsCustom.html">Home</a></li>
-            <li><a href="BCservices.html">Services</a></li>
-            <li><a href="BCcustomorder.html">Custom Order</a></li>
-            <li><a href="BCaboutme.html">About Me</a></li>
-            <li><a href="BCcontactus.html">Contact Us</a></li>
-        </ul>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="BCservices.html">Services</a></li>
+        <li><a href="BCaboutme.html">About</a></li>
+        <li><a href="BCcontactus.html">Contact</a></li>
+      </ul>
     </nav>
-    
-    <div id="content">
-        <h1>Welcome to Bevil's Custom</h1>
-        <p>We specialize in custom metal work, carports, fences, ranch signs, car parts, and more.</p>
-    </div>
+  </header>
 
-    <h2>Your Current Location</h2>
-    <div id="map"></div>
-    <div id="location-info">
-        <p><strong>Latitude:</strong> <span id="latitude">Loading...</span></p>
-        <p><strong>Longitude:</strong> <span id="longitude">Loading...</span></p>
-        <p><strong>Altitude:</strong> <span id="altitude">Loading...</span></p>
-    </div>
+  <!-- Welcome Section -->
+  <div id="content">
+    <h1>Welcome to Bevil's Custom</h1>
+    <p>We specialize in custom metal work, carports, fences, ranch signs, car parts, and more.</p>
+  </div>
 
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var map = L.map('map').setView([26.2708, -98.2300], 13); // Default center (McAllen, TX)
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Bevil's Custom Fabrication. All rights reserved.</p>
+  </footer>
 
-            // Add Tile Layer (OpenStreetMap)
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; OpenStreetMap contributors'
-            }).addTo(map);
-
-            // Add Marker for Business Location
-            var businessMarker = L.marker([26.2708, -98.2300]).addTo(map)
-                .bindPopup("<b>Bevil's Custom</b><br>10701 N Ware Rd, McAllen, TX 78504")
-                .openPopup();
-
-            // Get User Location
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    var lat = position.coords.latitude;
-                    var lon = position.coords.longitude;
-                    var alt = position.coords.altitude || "Not Available";
-
-                    document.getElementById("latitude").textContent = lat;
-                    document.getElementById("longitude").textContent = lon;
-                    document.getElementById("altitude").textContent = alt;
-
-                    var userMarker = L.marker([lat, lon]).addTo(map)
-                        .bindPopup("You are here").openPopup();
-
-                    map.setView([lat, lon], 13);
-                }, function(error) {
-                    console.error("Error getting location: " + error.message);
-                });
-            } else {
-                console.error("Geolocation is not supported by this browser.");
-            }
-        });
-    </script>
 </body>
 </html>

@@ -1,61 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <!--
-      Author: Alberto Gonzalez
-      Date:   03/10/2025
+  <!--
+    Author: Alberto Gonzalez
+    Date:   03/10/2025
+    Updated: 08/20/2025
+    Filename: BCcontactus.html
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact • Bevil's Custom</title>
 
-      Filename: BCcontactus.html
-   -->
+  <!-- Global site theme -->
+  <link href="BCstylesheet.css" rel="stylesheet" />
+  <!-- Contact page tweaks (stacked layout) -->
+  <link href="BCcontactus.css" rel="stylesheet" />
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bevil's Custom</title>
-    <link  href="BCcontactus.css" rel="stylesheet">
-    <script src="BCcontactus.js" defer></script>
+  <!-- Leaflet (map) -->
+  <link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet" />
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="BCservices.html">Services</a></li>
-            <li><a href="BCcustomorder.html">Custom Order</a></li>
-            <li><a href="BCaboutme.html">About Me</a></li>
-            <li><a href="BCcontactus.html">Contact Us</a></li>
-        </ul>
-    </nav>
 
-    
-    <h2>Contact Me</h2>
-    <form id="contactForm" onsubmit="validateForm(event)">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
-        <br>
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email">
-        <br>
-        <label for="service">Service:</label>
-        <select id="service" name="service">
-            <option value="">--Select Service--</option>
-            <option value="carport">Carport</option>
-            <option value="fences">Fences</option>
-            <option value="ranch signs">Ranch Signs</option>
-            <option value="custom auto-parts">Custom Auto-Parts</option>
-            <option value="metal arts">Metal Arts</option>
-            <option value="other">Other</option>
-        </select>
-        <br>
-        <label>Business Type:</label>
-        <input type="radio" id="commercial" name="businessType" value="commercial">
-        <label for="commercial">Commercial</label>
-        <input type="radio" id="personal" name="businessType" value="personal">
-        <label for="personal">Personal</label>
-        <br>
-        <label for="message">Message:</label>
-        <textarea id="message" name="message"></textarea>
-        <br>
-        <button type="submit">Submit</button>
-    </form>
-    <div id="errorMessages"></div>
+  <!-- Header with logo + nav -->
+  <header>
+    <div class="logo">
+      <img src="logo.jpg" alt="Bevil's Custom Fabrication logo" />
+      <span class="brand">Bevil's Custom Fabrication</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="BCservices.html">Services</a></li>
+        <li><a href="BCaboutme.html">About</a></li>
+        <li><a href="BCcontactus.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Stacked wrapper -->
+    <div id="contact-sections">
+
+      <!-- Contact Form (top) -->
+      <section class="card contact-card">
+        <h1>Contact Us</h1>
+        <p class="muted">Tell us what you need and we’ll get back to you.</p>
+
+        <form id="contactForm" novalidate>
+          <div class="field">
+            <label for="name">Name <span class="req">*</span></label>
+            <input type="text" id="name" name="name" autocomplete="name" required />
+          </div>
+
+          <div class="field">
+            <label for="email">Email <span class="req">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" required />
+          </div>
+
+          <div class="field">
+            <label for="service">Service <span class="req">*</span></label>
+            <select id="service" name="service" required>
+              <option value="">-- Select a Service --</option>
+              <option value="fencesRanch">Fences &amp; Ranch Signs</option>
+              <option value="vehicleParts">Vehicle Parts</option>
+              <option value="metalArt">Metal Art</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <fieldset class="field radios">
+            <legend>Business Type <span class="req">*</span></legend>
+            <label><input type="radio" name="businessType" value="commercial" required /> Commercial</label>
+            <label><input type="radio" name="businessType" value="personal" required /> Personal</label>
+          </fieldset>
+
+          <div class="field">
+            <label for="message">Message <span class="req">*</span></label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+
+          <!-- Attachments -->
+          <div class="field">
+            <label for="attachment">Attachments (optional)</label>
+            <input type="file" id="attachment" name="attachment" multiple />
+            <p class="muted small">Add any attachments you may have for references (images, sketches, PDFs).</p>
+            <div id="fileList" class="small muted"></div>
+          </div>
+
+          <!-- Error / success messages -->
+          <div id="errorMessages" class="errors" aria-live="polite"></div>
+          <div id="successMessage" class="success" aria-live="polite"></div>
+
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </section>
+
+      <!-- Map (bottom) -->
+      <section class="card map-card" aria-labelledby="map-heading">
+        <h2 id="map-heading">Find Us</h2>
+        <p class="muted">10701 N Ware Rd, McAllen, TX 78504</p>
+
+        <div id="map" class="map-box" role="region" aria-label="Map showing Bevil's Custom location"></div>
+
+        <div class="map-actions">
+          <a id="directionsBtn"
+             class="btn"
+             target="_blank" rel="noopener"
+             href="https://www.google.com/maps/dir/?api=1&destination=10701+N+Ware+Rd,+McAllen,+TX+78504">
+            Get Directions
+          </a>
+        </div>
+
+        <div id="location-info" class="muted small">
+          <span id="geo-status">If allowed, we’ll show your current location on the map.</span>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Bevil's Custom Fabrication. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="BCcontactus.js" defer></script>
 </body>
 </html>

@@ -1,45 +1,46 @@
 # Bevil's Custom
 
-**First Code Project** — a digital flyer-style website built for a local fabrication business.
+**First Code Project** — a digital flyer-style website built for a local fabrication business.  
 
 ## 🔨 About the Project
 
-This website was designed to give Bevil's Custom a strong digital presence. 
-It serves as a simple, responsive landing page that highlights services, pricing, and contact options.
+This project was created to give **Bevil's Custom** a strong digital presence.  
+It’s a simple, responsive landing page that highlights services, contact options, and company branding.  
 
-The business owner is a friend of mine, and this project is helping us both: 
-I get hands-on experience designing and coding a real-world website, and he gets 
-a web presence for his shop. The project is still in progress — it currently 
-includes code submitted for a school assignment while I wait for feedback from the 
-owner on additional features he’d like to include.
+The business owner is a friend of mine, so this project has been mutually beneficial:  
+I gain real-world web development experience, and he gets a modern online presence for his shop.  
+
+The site started as a school assignment but has grown into a **real client project**. It now reflects client feedback and evolving branding needs.
 
 ### 🔑 Key Features
 
-- Clean layout with simple navigation  
+- Dark gray and neon-green color scheme with custom logo integration  
+- Clean, simple navigation  
 - Mobile-friendly responsive design  
-- Service info and quote request form  
-- Professional bio section  
-- Custom order details and contact form
+- Interactive services page with dynamic descriptions  
+- Contact form with file attachment support  
+- Embedded business location map with one-click directions  
 
 ## 📁 Tech Stack
 
-- HTML5  
-- CSS3  
-- JavaScript (for interaction)  
-- Built in VS Code, version-controlled with Git & GitHub
+- **Frontend:** HTML5, CSS3, JavaScript  
+- **Tools:** VS Code, Git & GitHub for version control  
+- **Map Integration:** Leaflet.js with OpenStreetMap tiles  
 
 ## 🚀 Live Preview
 
-(Coming soon — GitHub Pages or Netlify setup pending)
+🔗 [View the site on GitHub Pages](https://agonz1224.github.io/Bevil-s-Custom/)  
 
 ## 🛠️ Next Steps
 
-Based on client feedback, upcoming changes include:
-- Updating the logo with a new version provided by the client
-- Modifying the list of advertised services
-- Adjusting the color scheme for improved branding
-- Replacing and reorganizing photos for a cleaner layout
+Planned improvements include:  
+- Replacing placeholder photos with finalized project images  
+- Expanding service categories based on client updates  
+- Adding a **menu button (hamburger menu)** for smaller screens/mobile devices  
+- Further accessibility improvements (contrast, alt text, labels)  
+- Optional SEO optimization for better search visibility  
 
 ## 📫 Contact
 
-Website developed by [Alberto Gonzalez](mailto:albertgonzalez1224@gmail.com) for Bevil's Custom.
+Website developed by **Alberto Gonzalez**  
+📧 [albertgonzalez1224@gmail.com](mailto:albertgonzalez1224@gmail.com)  

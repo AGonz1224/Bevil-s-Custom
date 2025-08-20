@@ -1,45 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <!--
-      Author: Alberto Gonzalez
-      Date:   03/06/2025
+  <!--
+    Author: Alberto Gonzalez
+    Date:   03/06/2025
+    Updated: 08/20/2025
+    Filename: BCservices.html
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services • Bevil's Custom</title>
 
-      Filename: BCservices.html
-   -->
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bevil's Custom</title>
-    <link  href="BCstylesheet.css" rel="stylesheet">
-    <script src="BCservices.js" defer></script>
+  <link href="BCstylesheet.css" rel="stylesheet" />
+  <link href="BCservices.css" rel="stylesheet" />
+  <script src="BCservices.js" defer></script>
 </head>
 <body>
+
+  <!-- Header with logo + nav -->
+  <header>
+    <div class="logo">
+      <img src="logo.jpg" alt="Bevil's Custom Fabrication logo" />
+      <span class="brand">Bevil's Custom Fabrication</span>
+    </div>
     <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="BCservices.html">Services</a></li>
-            <li><a href="BCcustomorder.html">Custom Order</a></li>
-            <li><a href="BCaboutme.html">About Me</a></li>
-            <li><a href="BCcontactus.html">Contact Us</a></li>
-        </ul>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="BCservices.html" aria-current="page">Services</a></li>
+        <li><a href="BCaboutme.html">About</a></li>
+        <li><a href="BCcontactus.html">Contact</a></li>
+      </ul>
     </nav>
-    
-    <div id="content">
-        <h1>Services</h1>
-        <p>We specialize in custom metal work, carports, fences, ranch signs, car parts, and more.</p>
-        
+  </header>
+
+  <main class="container">
+    <section id="content">
+      <h1>Services</h1>
+      <p>
+        We specialize in custom metal work, <strong>Fences &amp; Ranch Signs</strong>, 
+        <strong>Vehicle Parts</strong>, and <strong>Metal Art</strong>.
+      </p>
+
+      <div class="selector">
         <label for="serviceSelector">Select a Service:</label>
         <select id="serviceSelector" onchange="showServiceInfo()">
-            <option value="">--Select a Service--</option>
-            <option value="carports">Carports</option>
-            <option value="fences">Fences</option>
-            <option value="ranchSigns">Ranch Signs</option>
-            <option value="carParts">Car Parts</option>
-            <option value="metalArt">Metal Art</option>
+          <option value="">-- Select a Service --</option>
+          <option value="fencesRanch">Fences &amp; Ranch Signs</option>
+          <option value="vehicleParts">Vehicle Parts</option>
+          <option value="metalArt">Metal Art</option>
         </select>
-        
-        <p id="serviceDescription">Select a service to see more details.</p>
-    </div>
+      </div>
+
+      <p id="serviceDescription" class="muted">Select a service to see more details.</p>
+    </section>
+
+    <!-- Optional: quick service cards -->
+    <section class="service-grid">
+      <article class="card">
+        <h2>Fences &amp; Ranch Signs</h2>
+        <p>Durable, welded steel fences and custom ranch signage with powder coat options.</p>
+      </article>
+      <article class="card">
+        <h2>Vehicle Parts</h2>
+        <p>Custom brackets, exhaust components, and specialty metal parts built to spec.</p>
+      </article>
+      <article class="card">
+        <h2>Metal Art</h2>
+        <p>Plasma-cut or hand-crafted designs for homes, ranches, and businesses.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Bevil's Custom Fabrication. All rights reserved.</p>
+  </footer>
+
+  <!-- OPTIONAL: if your existing BCservices.js doesn't handle new values,
+       this small script keeps your current page working. You can move these
+       cases into BCservices.js later. -->
+  <script>
+    function showServiceInfo() {
+      const sel = document.getElementById('serviceSelector').value;
+      const out = document.getElementById('serviceDescription');
+      const copy = {
+        fencesRanch:
+          "Strong, clean welds with alignment accuracy. Options for pipe, panel, and custom ranch signage including powder coat finishes.",
+        vehicleParts:
+          "One-off or small-batch parts: brackets, gussets, intake/exhaust components, and repair pieces in steel or aluminum.",
+        metalArt:
+          "Custom wall art, ranch logos, and signage—CNC plasma or hand-crafted pieces with various finishes."
+      };
+      out.textContent = copy[sel] || "Select a service to see more details.";
+    }
+  </script>
 </body>
 </html>
