@@ -3,28 +3,32 @@
 <head>
   <!--
     Author: Alberto Gonzalez
-    Date started: 03/06/2025
-    Date updated: 08/20/2025
-    Filename: index.html
+    File: index.html
+    Started: 03/06/2025
+    Updated: 09/10/2025
+    Purpose: Bevil's Custom Fabrication — Homepage
   -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bevil's Custom</title>
 
-  <!-- Site stylesheets -->
+  <!-- Styles -->
   <link href="BCstylesheet.css" rel="stylesheet" />
 </head>
-<body>
 
-  <!-- Header with logo + nav -->
-  <header>
-    <div class="logo">
+<body>
+  <!-- =========================================================
+       HEADER: Logo + Primary Navigation
+  ========================================================== -->
+  <header role="banner">
+    <div class="logo" aria-label="Company logo">
       <img src="logo.jpg" alt="Bevil's Custom Fabrication logo" />
       <span class="brand">Bevil's Custom Fabrication</span>
     </div>
-    <nav>
+
+    <nav aria-label="Main">
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="BCservices.html">Services</a></li>
         <li><a href="BCaboutme.html">About</a></li>
         <li><a href="BCcontactus.html">Contact</a></li>
@@ -32,16 +36,107 @@
     </nav>
   </header>
 
-  <!-- Welcome Section -->
-  <div id="content">
-    <h1>Welcome to Bevil's Custom</h1>
-    <p>We specialize in custom metal work, carports, fences, ranch signs, car parts, and more.</p>
-  </div>
+  <!-- =========================================================
+       HERO: Welcome / Tagline / Primary CTA
+       Replace placeholder text as needed
+  ========================================================== -->
+  <section id="hero" role="region" aria-labelledby="hero-title">
+    <div class="kicker">Welcome to Bevil's Custom</div>
+    <h1 id="hero-title">Custom fabrication, done right—built to last.</h1>
+    <p class="hero-subtitle">
+      We specialize in custom metal work, carports, fences, ranch signs, car parts, and more.  
+      We combine hands-on craftsmanship with modern CNC precision to deliver durable, great-looking work.  
+      Veteran-led service, fair pricing, and clear timelines—so your project gets done right.
+    </p>
+    <div class="hero-ctas">
+      <a class="btn primary" href="BCcontactus.html">Get a Quote</a>
+      <a class="btn" href="#services-preview">View Services</a>
+    </div>
+  </section>
+  
 
-  <!-- Footer -->
-  <footer>
+    <!-- =======================================================
+         SERVICES PREVIEW: 3 quick cards linking to Services
+         Keep bullets short; full details live on BCservices.html
+    ======================================================== -->
+    <section id="services-preview" role="region" aria-labelledby="services-title">
+      <h2 id="services-title">Services at a Glance</h2>
+
+      <!-- Card 1 -->
+      <article class="service-card" id="svc-vehicle" aria-labelledby="svc-vehicle-title">
+        <h3 id="svc-vehicle-title">Suspension &amp; Vehicle Parts</h3>
+        <ul class="bullets">
+          <li>Performance Suspension</li>
+          <li>OEM Suspension</li>
+          <li>Motorsports Fabrication</li>
+        </ul>
+        <p>Keep your vehicle at its best with upgrades, repairs, and motorsport-ready parts.</p>
+        <p><a href="BCservices.html#vehicle">Learn more</a></p>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="service-card" id="svc-fab" aria-labelledby="svc-fab-title">
+        <h3 id="svc-fab-title">Fabrication &amp; Welding</h3>
+        <ul class="bullets">
+          <li>Custom Fabrication</li>
+          <li>Weld Repair</li>
+        </ul>
+        <p>Strong, reliable metalwork and repairs tailored to your exact needs.</p>
+        <p><a href="BCservices.html#fabrication">Learn more</a></p>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="service-card" id="svc-cnc" aria-labelledby="svc-cnc-title">
+        <h3 id="svc-cnc-title">CNC &amp; Machining Services</h3>
+        <ul class="bullets">
+          <li>CNC Plasma Services</li>
+          <li>Machining Services</li>
+        </ul>
+        <p>Precision cutting and machining for clean, accurate results every time.</p>
+        <p><a href="BCservices.html#cnc">Learn more</a></p>
+      </article>
+    </section>
+
+    <!-- =======================================================
+         FEATURED WORK: Simple image grid (replace placeholders)
+         Add real images and captions later.
+    ======================================================== -->
+    <section id="featured-work" role="region" aria-labelledby="gallery-title">
+      <h2 id="gallery-title">Recent Projects</h2>
+
+      <div class="gallery">
+        <figure>
+          <img src="images/placeholder-fence.jpg" alt="Custom ranch fence with metal sign" />
+          <figcaption>Fences &amp; Ranch Signs</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/placeholder-suspension.jpg" alt="Performance suspension upgrade" />
+          <figcaption>Suspension Upgrade</figcaption>
+        </figure>
+
+        <figure>
+          <img src="images/placeholder-art.jpg" alt="Custom metal art wall piece" />
+          <figcaption>Metal Art</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         CALL TO ACTION: Contact
+    ======================================================== -->
+    <section id="cta" role="region" aria-labelledby="cta-title">
+      <h2 id="cta-title">Have a project in mind?</h2>
+      <p>Tell us what you need—we’ll get you a fast, fair quote.</p>
+      <p><a href="BCcontactus.html">Contact Us</a></p>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+  <footer role="contentinfo">
     <p>&copy; 2025 Bevil's Custom Fabrication. All rights reserved.</p>
   </footer>
-
 </body>
 </html>

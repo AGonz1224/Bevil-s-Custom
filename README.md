@@ -12,6 +12,14 @@ I gain real-world web development experience, and he gets a modern online presen
 
 The site started as a school assignment but has grown into a **real client project**. It now reflects client feedback and evolving branding needs.
 
+## ⚒️ Update
+
+- Responsive homepage (desktop → mobile)  
+- Hero banner with welcome text and CTA buttons  
+- Services preview (3 cards with bullets + blurbs)  
+- Clean navigation header and footer  
+- Contact link in navigation  
+
 ### 🔑 Key Features
 
 - Dark gray and neon-green color scheme with custom logo integration  
@@ -31,7 +39,7 @@ The site started as a school assignment but has grown into a **real client proje
 
 🔗 [View the site on GitHub Pages](https://agonz1224.github.io/Bevil-s-Custom/)  
 
-## 🛠️ Next Steps
+## 🛠️ Next Update
 
 Planned improvements include:  
 - Replacing placeholder photos with finalized project images  

@@ -1,11 +1,11 @@
 /*
 Author: Alberto Gonzalez
 Start Date:   03/06/2025
-Last Updated: 08/20/2025
+Last Updated: 09/10/2025
 Filename: BCstylesheet.css
 */
 
-/* General Page Styling */
+/* ===== General Page Styling ===== */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -14,7 +14,20 @@ body {
     color: #f2f2f2;           /* light text for readability */
 }
 
-/* ===== Header & Navigation Bar Styling ===== */
+h1 {
+    font-size: 32px;
+    color: #39FF14; /* neon headings for emphasis */
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #f2f2f2;
+}
+
+/* ===== Header & Navigation Bar ===== */
 header {
     background-color: #2b2b2b; 
     border-bottom: 3px solid #39FF14; /* neon green trim */
@@ -44,7 +57,6 @@ header {
     color: #f2f2f2;
 }
 
-/* Navigation */
 nav ul {
     list-style: none;
     padding: 0;
@@ -69,63 +81,121 @@ nav ul li a:hover {
     color: #000;               /* black text on neon */
 }
 
-/* ===== Main Content Styling ===== */
-#content {
+/* ===== Hero / Banner ===== */
+#hero {
+    min-height: 48vh;
+    display: grid;
+    place-items: center;
     text-align: center;
-    padding: 40px;
+    padding: 40px 16px;
+
+    /* neon-friendly gradient background */
+    background:
+        radial-gradient(1200px 400px at 50% -20%, rgba(57,255,20,0.06), transparent 65%),
+        linear-gradient(180deg, #2b2b2b 0%, #222 60%);
+    border-bottom: 3px solid #39FF14;
 }
 
-h1 {
-    font-size: 32px;
-    color: #39FF14; /* neon headings for emphasis */
+#hero .kicker {
+    color: #39FF14;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
 }
 
-p {
-    font-size: 18px;
-    line-height: 1.6;
-    max-width: 800px;
+#hero h1 {
+    margin: 6px 0 8px;
+    font-size: 34px;
+    color: #39FF14;
+}
+
+#hero .hero-subtitle {
+    color: #d8d8d8;
+    max-width: 820px;
     margin: 0 auto;
-    color: #f2f2f2;
 }
 
-/* ===== Image Styling ===== */
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
-}
-
-/* ===== Container for Displaying Images or Products ===== */
-.container {
+.hero-ctas {
     display: flex;
-    flex-wrap: wrap;
+    gap: 12px;
     justify-content: center;
-    gap: 20px;
-    padding: 20px;
+    flex-wrap: wrap;
+    margin-top: 16px;
 }
 
-/* ===== Card Layout ===== */
-.card {
-    background: #2b2b2b;
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid #3a3a3a;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
-    max-width: 300px;
+/* Hero Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid #39FF14;
+    color: #39FF14;
+    transition: transform .15s ease, background-color .2s ease, color .2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn.primary {
+    background: #39FF14;
+    color: #000;
+}
+
+/* ===== Services Preview ===== */
+#services-preview {
+    padding: 36px 16px;
+}
+
+#services-title {
     text-align: center;
+}
+
+.services-grid {
+    display: grid;
+    gap: 16px;
+    margin: 18px auto 0;
+    max-width: 1100px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.service-card {
+    background: #2b2b2b;
+    border: 1px solid #3a3a3a;
+    border-radius: 10px;
+    padding: 16px;
+}
+
+.service-card h3 {
+    color: #39FF14;
+    margin-top: 0;
+}
+
+.service-card .bullets {
+    margin: 8px 0;
+    padding-left: 18px;
+}
+
+.service-card .bullets li {
+    margin: 4px 0;
     color: #f2f2f2;
 }
 
-.card h2 {
-    font-size: 22px;
-    margin-bottom: 10px;
-    color: #39FF14; /* neon green */
+.service-card p {
+    color: #bdbdbd;
 }
 
-.card p {
-    font-size: 16px;
-    color: #bdbdbd; /* muted text */
+/* ===== Why Us & CTA ===== */
+#why-us,
+#cta {
+    padding: 36px 16px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 /* ===== Footer ===== */
@@ -138,6 +208,12 @@ footer {
 }
 
 /* ===== Responsive Design ===== */
+@media (max-width: 900px) {
+    #hero { min-height: 42vh; }
+    #hero h1 { font-size: 28px; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+}
+
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -149,48 +225,11 @@ footer {
         align-items: center;
     }
 
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
-
     .logo img {
         max-height: 60px; /* smaller logo on mobile */
     }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-    .container {
-        justify-content: space-around;
-    }
-}
-
-@media (min-width: 1025px) {
-    .container {
-        justify-content: center;
-    }
-}
-
-/* ===== Gallery Styling ===== */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 5px;
-    padding: 5px;
-    justify-content: center;
-}
-
-.gallery-item {
-    width: 75%; 
-    max-width: 400px; 
-    margin: auto;
-    overflow: hidden;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    border-radius: 8px;
+@media (max-width: 640px) {
+    .services-grid { grid-template-columns: 1fr; }
 }
