@@ -1,31 +1,151 @@
-/* Services page tweaks (inherits BCstylesheet.css theme) */
-/* Author: Alberto Gonzalez | Updated: 08/20/2025 */
+/* File: BCservices.css
+   Updated: 2025-09-19
+   notes to future me:
+   - This file styles ONLY the Services page.
+   - Top: clickable tab cards. Middle: gallery grid.
+   - Bottom: super-simple lightbox (ESC/←/→, click backdrop to close). */
 
+/* Center the intro block */
 #content { text-align: center; }
 
-.selector {
-  margin: 16px auto 8px;
+/* Tiny helper for the “Select a service” label */
+.select-hint { margin: 10px 0 8px; }
+
+/* --- clickable info-card tabs --- */
+.svc-tabs {
   display: grid;
-  gap: 8px;
-  max-width: 420px;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 20px auto;
+  max-width: 780px; /* keeps cards from getting too wide */
 }
 
-.selector select {
+/* each card behaves like a button */
+.svc-card {
+  appearance: none;
+  border: 1px solid #3a3a3a;
   background: #1f1f1f;
   color: #f2f2f2;
-  border: 1px solid #3a3a3a;
-  border-radius: 8px;
-  padding: 10px;
-  outline: none;
+  border-radius: 14px;
+  padding: 16px 18px;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+  transition: box-shadow .15s ease, border-color .15s ease, transform .05s ease;
 }
-.selector select:focus {
+.svc-card h2 {
+  margin: 0 0 6px 0;
+  color: #39FF14; /* brand green */
+  font-size: 1.15rem;
+}
+.svc-card p { margin: 0; color: #cfcfcf; }
+.svc-card:hover { transform: translateY(-1px); }
+.svc-card:focus-visible { outline: 2px solid #39FF14; outline-offset: 3px; }
+
+/* active tab = green glow */
+.svc-card.is-active {
   border-color: #39FF14;
-  box-shadow: 0 0 0 2px rgba(57,255,20,0.15);
+  box-shadow:
+    0 0 0 2px rgba(57,255,20,0.18),
+    0 0 22px rgba(57,255,20,0.22),
+    0 2px 14px rgba(0,0,0,0.45);
 }
 
-.service-grid {
-  margin-top: 18px;
+/* three across on wide screens */
+@media (min-width: 900px) {
+  .svc-tabs {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: none;
+  }
+}
+
+/* --- description + gallery --- */
+#serviceOutput { margin-top: 0.75rem; }
+.muted { color: #777; }
+
+/* responsive gallery grid */
+.gallery {
   display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 1rem;
+}
+.gallery figure { margin: 0; }
+.gallery img,
+.gallery video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  cursor: zoom-in; /* hint that images are clickable */
+}
+
+/* =====================================================
+   Lightbox (simple + safe)
+   - Opens when a gallery image is clicked.
+   - Close: click backdrop or press ESC.
+   - Navigate: ← / → keys (wired in JS).
+   ===================================================== */
+.lb {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+}
+.lb.is-open { display: block; }
+
+.lb__bg {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.78);
+  backdrop-filter: blur(2px);
+}
+
+.lb__box {
+  position: absolute;
+  inset: 5% 3%;
+  margin: 0;
+  display: grid;
+  place-items: center;
+}
+
+.lb__img {
+  max-width: 100%;
+  max-height: 82vh;
+  border-radius: 10px;
+  box-shadow:
+    0 0 0 2px rgba(57,255,20,0.15),
+    0 20px 60px rgba(0,0,0,0.6);
+}
+
+/* optional caption if I want to set one later */
+.lb__cap {
+  margin-top: 8px;
+  color: #cfcfcf;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+/* prev/next buttons */
+.lb__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  appearance: none;
+  border: 1px solid #39FF14;
+  background: rgba(17,17,17,0.6);
+  color: #39FF14;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 8px 12px;
+  transition: transform .1s ease, box-shadow .15s ease;
+}
+.lb__nav:hover { transform: translateY(calc(-50% - 1px)); }
+.lb__prev { left: 12px; }
+.lb__next { right: 12px; }
+
+@media (max-width: 640px) {
+  .lb__img { max-height: 72vh; }
+  .lb__nav { padding: 6px 10px; }
 }

@@ -5,7 +5,7 @@
     Author: Alberto Gonzalez
     File: index.html
     Started: 03/06/2025
-    Updated: 09/10/2025
+    Updated: 09/19/2025
     Purpose: Bevil's Custom Fabrication — Homepage
   -->
   <meta charset="UTF-8" />
@@ -17,9 +17,7 @@
 </head>
 
 <body>
-  <!-- =========================================================
-       HEADER: Logo + Primary Navigation
-  ========================================================== -->
+  <!-- ================= HEADER ================= -->
   <header role="banner">
     <div class="logo" aria-label="Company logo">
       <img src="logo.jpg" alt="Bevil's Custom Fabrication logo" />
@@ -36,32 +34,71 @@
     </nav>
   </header>
 
-  <!-- =========================================================
-       HERO: Welcome / Tagline / Primary CTA
-       Replace placeholder text as needed
-  ========================================================== -->
+  <!-- ================= HERO ================= -->
   <section id="hero" role="region" aria-labelledby="hero-title">
     <div class="kicker">Welcome to Bevil's Custom</div>
     <h1 id="hero-title">Custom fabrication, done right—built to last.</h1>
     <p class="hero-subtitle">
-      We specialize in custom metal work, carports, fences, ranch signs, car parts, and more.  
-      We combine hands-on craftsmanship with modern CNC precision to deliver durable, great-looking work.  
+      We specialize in custom metal work, carports, fences, ranch signs, car parts, and more.
+      We combine hands-on craftsmanship with modern CNC precision to deliver durable, great-looking work.
       Veteran-led service, fair pricing, and clear timelines—so your project gets done right.
     </p>
+
+    <!-- HERO MEDIA: video + images (click pills to switch) -->
+    <div class="hero-media" aria-label="Featured work">
+      <!-- default: video -->
+      <video
+        id="media-fab12"
+        class="hero-media__item is-active"
+        src="img/FAB/FAB12.MP4"
+        poster="img/CNC/CNC5.jpg"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-label="Fabrication & welding video"
+      ></video>
+
+      <!-- alt 1: CNC image -->
+      <img
+        id="media-cnc5"
+        class="hero-media__item"
+        src="img/CNC/CNC5.jpg"
+        alt="CNC & machining example"
+        loading="eager"
+      />
+
+      <!-- alt 2: Vehicle image -->
+      <img
+        id="media-veh1"
+        class="hero-media__item"
+        src="img/VEH/VEH1.jpg"
+        alt="Suspension & vehicle parts example"
+        loading="eager"
+      />
+
+      <!-- media controls -->
+      <div class="hero-media__controls" role="tablist" aria-label="Switch featured media">
+        <button class="pill is-active" role="tab" aria-selected="true" data-target="media-fab12">Fabrication</button>
+        <button class="pill" role="tab" aria-selected="false" data-target="media-cnc5">CNC</button>
+        <button class="pill" role="tab" aria-selected="false" data-target="media-veh1">Vehicle</button>
+      </div>
+    </div>
+
     <div class="hero-ctas">
-      <a class="btn primary" href="BCcontactus.html">Get a Quote</a>
-      <a class="btn" href="#services-preview">View Services</a>
+      <!-- small, filled green (matches Learn more size) -->
+      <a class="btn primary btn--sm" href="BCcontactus.html">Contact Us</a>
+      <!-- large, outline green for variety -->
+      <a class="btn btn--lg" href="#services-preview">View Services</a>
     </div>
   </section>
-  
 
-    <!-- =======================================================
-         SERVICES PREVIEW: 3 quick cards linking to Services
-         Keep bullets short; full details live on BCservices.html
-    ======================================================== -->
-    <section id="services-preview" role="region" aria-labelledby="services-title">
-      <h2 id="services-title">Services at a Glance</h2>
+  <!-- ============ SERVICES PREVIEW (3 cards) ============ -->
+  <section id="services-preview" role="region" aria-labelledby="services-title">
+    <h2 id="services-title">Services at a Glance</h2>
 
+    <div class="services-grid">
       <!-- Card 1 -->
       <article class="service-card" id="svc-vehicle" aria-labelledby="svc-vehicle-title">
         <h3 id="svc-vehicle-title">Suspension &amp; Vehicle Parts</h3>
@@ -71,7 +108,8 @@
           <li>Motorsports Fabrication</li>
         </ul>
         <p>Keep your vehicle at its best with upgrades, repairs, and motorsport-ready parts.</p>
-        <p><a href="BCservices.html#vehicle">Learn more</a></p>
+        <!-- small, outline green; opens VEH tab -->
+        <p><a class="btn btn--sm" href="BCservices.html#veh">Learn more</a></p>
       </article>
 
       <!-- Card 2 -->
@@ -82,7 +120,8 @@
           <li>Weld Repair</li>
         </ul>
         <p>Strong, reliable metalwork and repairs tailored to your exact needs.</p>
-        <p><a href="BCservices.html#fabrication">Learn more</a></p>
+        <!-- opens FAB tab -->
+        <p><a class="btn btn--sm" href="BCservices.html#fab">Learn more</a></p>
       </article>
 
       <!-- Card 3 -->
@@ -93,50 +132,96 @@
           <li>Machining Services</li>
         </ul>
         <p>Precision cutting and machining for clean, accurate results every time.</p>
-        <p><a href="BCservices.html#cnc">Learn more</a></p>
+        <!-- opens CNC tab -->
+        <p><a class="btn btn--sm" href="BCservices.html#cnc">Learn more</a></p>
       </article>
-    </section>
+    </div>
+  </section>
 
-    <!-- =======================================================
-         FEATURED WORK: Simple image grid (replace placeholders)
-         Add real images and captions later.
-    ======================================================== -->
-    <section id="featured-work" role="region" aria-labelledby="gallery-title">
-      <h2 id="gallery-title">Recent Projects</h2>
+  <!-- ============ RECENT PROJECTS (commented out for now) ============ -->
+  <!--
+  <section id="featured-work" role="region" aria-labelledby="gallery-title">
+    <h2 id="gallery-title">Recent Projects</h2>
+    <div class="gallery">
+      <figure>
+        <a href="BCservices.html#fab">
+          <img src="img/FAB/FAB4.jpg" alt="Clean welds and custom fabrication detail" />
+        </a>
+        <figcaption>Fabrication &amp; Welding</figcaption>
+      </figure>
+      <figure>
+        <a href="BCservices.html#cnc">
+          <img src="img/CNC/CNC3.jpg" alt="CNC cut part with crisp edges" />
+        </a>
+        <figcaption>CNC &amp; Machining</figcaption>
+      </figure>
+      <figure>
+        <a href="BCservices.html#veh">
+          <img src="img/VEH/VEH4.jpg" alt="Suspension component and bracket fitment" />
+        </a>
+        <figcaption>Suspension &amp; Vehicle Parts</figcaption>
+      </figure>
+    </div>
+  </section>
+  -->
 
-      <div class="gallery">
-        <figure>
-          <img src="images/placeholder-fence.jpg" alt="Custom ranch fence with metal sign" />
-          <figcaption>Fences &amp; Ranch Signs</figcaption>
-        </figure>
+  <!-- ============ CTA ============ -->
+  <section id="cta" role="region" aria-labelledby="cta-title">
+    <h2 id="cta-title">Have a project in mind?</h2>
+    <p>Tell us what you need—we’ll get you a fast, fair quote.</p>
+    <!-- small, filled green (same size as Learn more) -->
+    <p><a class="btn primary btn--sm" href="BCcontactus.html">Contact Us</a></p>
+  </section>
 
-        <figure>
-          <img src="images/placeholder-suspension.jpg" alt="Performance suspension upgrade" />
-          <figcaption>Suspension Upgrade</figcaption>
-        </figure>
-
-        <figure>
-          <img src="images/placeholder-art.jpg" alt="Custom metal art wall piece" />
-          <figcaption>Metal Art</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- =======================================================
-         CALL TO ACTION: Contact
-    ======================================================== -->
-    <section id="cta" role="region" aria-labelledby="cta-title">
-      <h2 id="cta-title">Have a project in mind?</h2>
-      <p>Tell us what you need—we’ll get you a fast, fair quote.</p>
-      <p><a href="BCcontactus.html">Contact Us</a></p>
-    </section>
-  </main>
-
-  <!-- =========================================================
-       FOOTER
-  ========================================================== -->
+  <!-- ================= FOOTER ================= -->
   <footer role="contentinfo">
     <p>&copy; 2025 Bevil's Custom Fabrication. All rights reserved.</p>
   </footer>
+
+  <!-- ======= tiny inline JS for hero media switcher ======= -->
+  <script>
+    // notes to future me:
+    // - When a pill is clicked, I hide all media, show the target, and manage play/pause for the video.
+    // - Honors reduced motion: pause video if user prefers less motion.
+
+    (function () {
+      const items = Array.from(document.querySelectorAll(".hero-media__item"));
+      const pills = Array.from(document.querySelectorAll(".hero-media__controls .pill"));
+      const prefersLessMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      function show(targetId) {
+        items.forEach(el => {
+          const isTarget = el.id === targetId;
+          el.classList.toggle("is-active", isTarget);
+
+          // pause any videos that aren't active; play only the active video
+          if (el.tagName === "VIDEO") {
+            if (isTarget && !prefersLessMotion) {
+              el.play().catch(() => {});
+            } else {
+              el.pause();
+            }
+          }
+        });
+
+        pills.forEach(btn => {
+          const active = btn.dataset.target === targetId;
+          btn.classList.toggle("is-active", active);
+          btn.setAttribute("aria-selected", active ? "true" : "false");
+        });
+      }
+
+      // if reduced motion is set, pause video on load
+      if (prefersLessMotion) {
+        const vid = document.getElementById("media-fab12");
+        if (vid) vid.pause();
+      }
+
+      // wire up pills
+      pills.forEach(btn => {
+        btn.addEventListener("click", () => show(btn.dataset.target));
+      });
+    })();
+  </script>
 </body>
 </html>
