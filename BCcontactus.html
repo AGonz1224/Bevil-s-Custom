@@ -1,34 +1,35 @@
+<!-- 
+// Author: Alberto Gonzalez
+// Started:  03/10/2025
+// Updated:  09/26/2025
+// Filename: BCcontactus.html
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
-    Author: Alberto Gonzalez
-    Date:   03/10/2025
-    Updated: 08/20/2025
-    Filename: BCcontactus.html
-  -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact • Bevil's Custom</title>
 
-  <!-- Global site theme -->
   <link href="BCstylesheet.css" rel="stylesheet" />
-  <!-- Contact page tweaks (stacked layout) -->
   <link href="BCcontactus.css" rel="stylesheet" />
-
-  <!-- Leaflet (map) -->
   <link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet" />
+  <script src="BCnav.js?v=1" defer></script>
 </head>
 <body>
-
-  <!-- Header with logo + nav -->
-  <header>
+  <header class="site-header">
     <div class="logo">
       <img src="logo.jpg" alt="Bevil's Custom Fabrication logo" />
       <span class="brand">Bevil's Custom Fabrication</span>
     </div>
-    <nav>
-      <ul>
+    <nav class="primary-nav" aria-label="Primary">
+      <button class="burger" type="button" aria-label="Open menu" aria-controls="siteMenu" aria-expanded="false">
+        <span class="burger-bar" aria-hidden="true"></span>
+        <span class="burger-bar" aria-hidden="true"></span>
+        <span class="burger-bar" aria-hidden="true"></span>
+      </button>
+      <ul class="nav-list">
         <li><a href="index.html">Home</a></li>
         <li><a href="BCservices.html">Services</a></li>
         <li><a href="BCaboutme.html">About</a></li>
@@ -37,11 +38,21 @@
     </nav>
   </header>
 
-  <main class="container">
-    <!-- Stacked wrapper -->
-    <div id="contact-sections">
+  <div id="siteMenu" class="site-menu" aria-hidden="true">
+    <div class="site-menu__bg" data-close="1"></div>
+    <nav class="site-menu__panel" aria-label="Mobile">
+      <button class="site-menu__close" type="button" aria-label="Close menu (Esc)" data-close="1">×</button>
+      <ul class="site-menu__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="BCservices.html">Services</a></li>
+        <li><a href="BCaboutme.html">About</a></li>
+        <li><a href="BCcontactus.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
 
-      <!-- Contact Form (top) -->
+  <main class="container">
+    <div id="contact-sections">
       <section class="card contact-card">
         <h1>Contact Us</h1>
         <p class="muted">Tell us what you need and we’ll get back to you.</p>
@@ -51,12 +62,10 @@
             <label for="name">Name <span class="req">*</span></label>
             <input type="text" id="name" name="name" autocomplete="name" required />
           </div>
-
           <div class="field">
             <label for="email">Email <span class="req">*</span></label>
             <input type="email" id="email" name="email" autocomplete="email" required />
           </div>
-
           <div class="field">
             <label for="service">Service <span class="req">*</span></label>
             <select id="service" name="service" required>
@@ -79,7 +88,6 @@
             <textarea id="message" name="message" rows="5" required></textarea>
           </div>
 
-          <!-- Attachments -->
           <div class="field">
             <label for="attachment">Attachments (optional)</label>
             <input type="file" id="attachment" name="attachment" multiple />
@@ -87,7 +95,6 @@
             <div id="fileList" class="small muted"></div>
           </div>
 
-          <!-- Error / success messages -->
           <div id="errorMessages" class="errors" aria-live="polite"></div>
           <div id="successMessage" class="success" aria-live="polite"></div>
 
@@ -95,7 +102,6 @@
         </form>
       </section>
 
-      <!-- Map (bottom) -->
       <section class="card map-card" aria-labelledby="map-heading">
         <h2 id="map-heading">Find Us</h2>
         <p class="muted">10701 N Ware Rd, McAllen, TX 78504</p>
@@ -103,9 +109,7 @@
         <div id="map" class="map-box" role="region" aria-label="Map showing Bevil's Custom location"></div>
 
         <div class="map-actions">
-          <a id="directionsBtn"
-             class="btn"
-             target="_blank" rel="noopener"
+          <a id="directionsBtn" class="btn" target="_blank" rel="noopener"
              href="https://www.google.com/maps/dir/?api=1&destination=10701+N+Ware+Rd,+McAllen,+TX+78504">
             Get Directions
           </a>
@@ -115,7 +119,6 @@
           <span id="geo-status">If allowed, we’ll show your current location on the map.</span>
         </div>
       </section>
-
     </div>
   </main>
 
@@ -123,7 +126,6 @@
     <p>&copy; 2025 Bevil's Custom Fabrication. All rights reserved.</p>
   </footer>
 
-  <!-- Scripts -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="BCcontactus.js" defer></script>
 </body>

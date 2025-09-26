@@ -1,32 +1,38 @@
+<!-- 
+// Author: Alberto Gonzalez
+// Started:  03/06/2025
+// Updated:  09/26/2025
+// Filename: BCservices.html
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Services page
-       Notes to future me:
-       - The three cards below ARE the tabs.
-       - JS fills in the description + gallery when a card is clicked. -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Services • Bevil's Custom</title>
 
-  <!-- site-wide styles then page styles -->
-  <link href="BCstylesheet2.css" rel="stylesheet" />
+  <link href="BCstylesheet.css" rel="stylesheet" />
   <link href="BCservices.css" rel="stylesheet" />
 
-  <!-- keep ?v= so browsers pull the latest JS -->
-  <script src="BCservices.js?v=10" defer></script>
+  <script src="BCnav.js?v=1" defer></script>
+  <script src="BCservices.js?v=11" defer></script>
 </head>
 
 <body>
-  <!-- ===================== HEADER ===================== -->
-  <header>
+  <header class="site-header">
     <div class="logo">
       <img src="logo.jpg" alt="Bevil's Custom Fabrication logo" />
       <span class="brand">Bevil's Custom Fabrication</span>
     </div>
 
-    <nav aria-label="Primary">
-      <ul>
+    <nav class="primary-nav" aria-label="Primary">
+      <button class="burger" type="button" aria-label="Open menu" aria-controls="siteMenu" aria-expanded="false">
+        <span class="burger-bar" aria-hidden="true"></span>
+        <span class="burger-bar" aria-hidden="true"></span>
+        <span class="burger-bar" aria-hidden="true"></span>
+      </button>
+      <ul class="nav-list">
         <li><a href="index.html">Home</a></li>
         <li><a href="BCservices.html" aria-current="page">Services</a></li>
         <li><a href="BCaboutme.html">About</a></li>
@@ -35,7 +41,19 @@
     </nav>
   </header>
 
-  <!-- ====================== MAIN ====================== -->
+  <div id="siteMenu" class="site-menu" aria-hidden="true">
+    <div class="site-menu__bg" data-close="1"></div>
+    <nav class="site-menu__panel" aria-label="Mobile">
+      <button class="site-menu__close" type="button" aria-label="Close menu (Esc)" data-close="1">×</button>
+      <ul class="site-menu__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="BCservices.html" aria-current="page">Services</a></li>
+        <li><a href="BCaboutme.html">About</a></li>
+        <li><a href="BCcontactus.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
   <main class="container">
     <section id="content">
       <h1>Services</h1>
@@ -45,10 +63,8 @@
         <strong>CNC &amp; Machining Services</strong>.
       </p>
 
-      <!-- No tab selected by default -->
       <p class="select-hint muted" aria-hidden="true">Select a service:</p>
 
-      <!-- These three cards act like tabs -->
       <nav class="svc-tabs" role="tablist" aria-label="Choose a service">
         <button class="svc-card" role="tab" aria-selected="false" data-key="veh">
           <h2>Suspension &amp; Vehicle Parts</h2>
@@ -66,7 +82,6 @@
         </button>
       </nav>
 
-      <!-- JS drops the description + gallery here -->
       <section id="serviceOutput" aria-live="polite" aria-atomic="true">
         <p id="serviceDescription" class="muted">Select a service above to see photos.</p>
         <div id="serviceGallery" class="gallery"></div>
@@ -74,7 +89,6 @@
     </section>
   </main>
 
-  <!-- ===================== FOOTER ===================== -->
   <footer>
     <p>&copy; 2025 Bevil's Custom Fabrication. All rights reserved.</p>
   </footer>

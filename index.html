@@ -1,31 +1,37 @@
+<!-- 
+// Author: Alberto Gonzalez
+// Started:  03/06/2025
+// Updated:  09/26/2025
+// Filename: index.html
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
-    Author: Alberto Gonzalez
-    File: index.html
-    Started: 03/06/2025
-    Updated: 09/19/2025
-    Purpose: Bevil's Custom Fabrication — Homepage
-  -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bevil's Custom</title>
 
-  <!-- Styles -->
   <link href="BCstylesheet.css" rel="stylesheet" />
+  <script src="BCnav.js?v=1" defer></script>
 </head>
 
 <body>
-  <!-- ================= HEADER ================= -->
-  <header role="banner">
+  <!-- Header with logo + desktop nav + burger -->
+  <header class="site-header" role="banner">
     <div class="logo" aria-label="Company logo">
       <img src="logo.jpg" alt="Bevil's Custom Fabrication logo" />
       <span class="brand">Bevil's Custom Fabrication</span>
     </div>
 
-    <nav aria-label="Main">
-      <ul>
+    <nav class="primary-nav" aria-label="Primary">
+      <button class="burger" type="button" aria-label="Open menu" aria-controls="siteMenu" aria-expanded="false">
+        <span class="burger-bar" aria-hidden="true"></span>
+        <span class="burger-bar" aria-hidden="true"></span>
+        <span class="burger-bar" aria-hidden="true"></span>
+      </button>
+
+      <ul class="nav-list">
         <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="BCservices.html">Services</a></li>
         <li><a href="BCaboutme.html">About</a></li>
@@ -34,51 +40,43 @@
     </nav>
   </header>
 
-  <!-- ================= HERO ================= -->
+  <!-- Overlay menu (mobile) -->
+  <div id="siteMenu" class="site-menu" aria-hidden="true">
+    <div class="site-menu__bg" data-close="1"></div>
+    <nav class="site-menu__panel" aria-label="Mobile">
+      <button class="site-menu__close" type="button" aria-label="Close menu (Esc)" data-close="1">×</button>
+      <ul class="site-menu__links">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="BCservices.html">Services</a></li>
+        <li><a href="BCaboutme.html">About</a></li>
+        <li><a href="BCcontactus.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- HERO -->
   <section id="hero" role="region" aria-labelledby="hero-title">
     <div class="kicker">Welcome to Bevil's Custom</div>
     <h1 id="hero-title">Custom fabrication, done right—built to last.</h1>
     <p class="hero-subtitle">
-      We specialize in custom metal work, carports, fences, ranch signs, car parts, and more.
-      We combine hands-on craftsmanship with modern CNC precision to deliver durable, great-looking work.
-      Veteran-led service, fair pricing, and clear timelines—so your project gets done right.
+      We specialize in custom metal work including fences, gates, railings, ranch signs, and automotive parts.
+      Our team combines hands-on craftsmanship with modern CNC precision to deliver durable, great-looking results.
+      We proudly support military, law enforcement, first responders, and teachers — offering fair pricing and clear timelines so your project gets done right.
     </p>
 
-    <!-- HERO MEDIA: video + images (click pills to switch) -->
     <div class="hero-media" aria-label="Featured work">
-      <!-- default: video -->
       <video
         id="media-fab12"
         class="hero-media__item is-active"
         src="img/FAB/FAB12.MP4"
         poster="img/CNC/CNC5.jpg"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        aria-label="Fabrication & welding video"
-      ></video>
+        autoplay muted loop playsinline preload="metadata"
+        aria-label="Fabrication & welding video">
+      </video>
 
-      <!-- alt 1: CNC image -->
-      <img
-        id="media-cnc5"
-        class="hero-media__item"
-        src="img/CNC/CNC5.jpg"
-        alt="CNC & machining example"
-        loading="eager"
-      />
+      <img id="media-cnc5" class="hero-media__item" src="img/CNC/CNC5.jpg" alt="CNC & machining example" loading="eager" />
+      <img id="media-veh1" class="hero-media__item" src="img/VEH/VEH1.jpg" alt="Suspension & vehicle parts example" loading="eager" />
 
-      <!-- alt 2: Vehicle image -->
-      <img
-        id="media-veh1"
-        class="hero-media__item"
-        src="img/VEH/VEH1.jpg"
-        alt="Suspension & vehicle parts example"
-        loading="eager"
-      />
-
-      <!-- media controls -->
       <div class="hero-media__controls" role="tablist" aria-label="Switch featured media">
         <button class="pill is-active" role="tab" aria-selected="true" data-target="media-fab12">Fabrication</button>
         <button class="pill" role="tab" aria-selected="false" data-target="media-cnc5">CNC</button>
@@ -87,19 +85,16 @@
     </div>
 
     <div class="hero-ctas">
-      <!-- small, filled green (matches Learn more size) -->
       <a class="btn primary btn--sm" href="BCcontactus.html">Contact Us</a>
-      <!-- large, outline green for variety -->
       <a class="btn btn--lg" href="#services-preview">View Services</a>
     </div>
   </section>
 
-  <!-- ============ SERVICES PREVIEW (3 cards) ============ -->
+  <!-- Services preview -->
   <section id="services-preview" role="region" aria-labelledby="services-title">
     <h2 id="services-title">Services at a Glance</h2>
 
     <div class="services-grid">
-      <!-- Card 1 -->
       <article class="service-card" id="svc-vehicle" aria-labelledby="svc-vehicle-title">
         <h3 id="svc-vehicle-title">Suspension &amp; Vehicle Parts</h3>
         <ul class="bullets">
@@ -108,11 +103,9 @@
           <li>Motorsports Fabrication</li>
         </ul>
         <p>Keep your vehicle at its best with upgrades, repairs, and motorsport-ready parts.</p>
-        <!-- small, outline green; opens VEH tab -->
         <p><a class="btn btn--sm" href="BCservices.html#veh">Learn more</a></p>
       </article>
 
-      <!-- Card 2 -->
       <article class="service-card" id="svc-fab" aria-labelledby="svc-fab-title">
         <h3 id="svc-fab-title">Fabrication &amp; Welding</h3>
         <ul class="bullets">
@@ -120,11 +113,9 @@
           <li>Weld Repair</li>
         </ul>
         <p>Strong, reliable metalwork and repairs tailored to your exact needs.</p>
-        <!-- opens FAB tab -->
         <p><a class="btn btn--sm" href="BCservices.html#fab">Learn more</a></p>
       </article>
 
-      <!-- Card 3 -->
       <article class="service-card" id="svc-cnc" aria-labelledby="svc-cnc-title">
         <h3 id="svc-cnc-title">CNC &amp; Machining Services</h3>
         <ul class="bullets">
@@ -132,95 +123,44 @@
           <li>Machining Services</li>
         </ul>
         <p>Precision cutting and machining for clean, accurate results every time.</p>
-        <!-- opens CNC tab -->
         <p><a class="btn btn--sm" href="BCservices.html#cnc">Learn more</a></p>
       </article>
     </div>
   </section>
 
-  <!-- ============ RECENT PROJECTS (commented out for now) ============ -->
-  <!--
-  <section id="featured-work" role="region" aria-labelledby="gallery-title">
-    <h2 id="gallery-title">Recent Projects</h2>
-    <div class="gallery">
-      <figure>
-        <a href="BCservices.html#fab">
-          <img src="img/FAB/FAB4.jpg" alt="Clean welds and custom fabrication detail" />
-        </a>
-        <figcaption>Fabrication &amp; Welding</figcaption>
-      </figure>
-      <figure>
-        <a href="BCservices.html#cnc">
-          <img src="img/CNC/CNC3.jpg" alt="CNC cut part with crisp edges" />
-        </a>
-        <figcaption>CNC &amp; Machining</figcaption>
-      </figure>
-      <figure>
-        <a href="BCservices.html#veh">
-          <img src="img/VEH/VEH4.jpg" alt="Suspension component and bracket fitment" />
-        </a>
-        <figcaption>Suspension &amp; Vehicle Parts</figcaption>
-      </figure>
-    </div>
-  </section>
-  -->
-
-  <!-- ============ CTA ============ -->
+  <!-- CTA -->
   <section id="cta" role="region" aria-labelledby="cta-title">
     <h2 id="cta-title">Have a project in mind?</h2>
     <p>Tell us what you need—we’ll get you a fast, fair quote.</p>
-    <!-- small, filled green (same size as Learn more) -->
     <p><a class="btn primary btn--sm" href="BCcontactus.html">Contact Us</a></p>
   </section>
 
-  <!-- ================= FOOTER ================= -->
   <footer role="contentinfo">
     <p>&copy; 2025 Bevil's Custom Fabrication. All rights reserved.</p>
   </footer>
 
-  <!-- ======= tiny inline JS for hero media switcher ======= -->
+  <!-- tiny inline JS for hero pills -->
   <script>
-    // notes to future me:
-    // - When a pill is clicked, I hide all media, show the target, and manage play/pause for the video.
-    // - Honors reduced motion: pause video if user prefers less motion.
-
     (function () {
       const items = Array.from(document.querySelectorAll(".hero-media__item"));
       const pills = Array.from(document.querySelectorAll(".hero-media__controls .pill"));
-      const prefersLessMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      function show(targetId) {
+      function show(id) {
         items.forEach(el => {
-          const isTarget = el.id === targetId;
-          el.classList.toggle("is-active", isTarget);
-
-          // pause any videos that aren't active; play only the active video
-          if (el.tagName === "VIDEO") {
-            if (isTarget && !prefersLessMotion) {
-              el.play().catch(() => {});
-            } else {
-              el.pause();
-            }
-          }
+          const on = el.id === id;
+          el.classList.toggle("is-active", on);
+          if (el.tagName === "VIDEO") on && !reduce ? el.play().catch(()=>{}) : el.pause();
         });
-
-        pills.forEach(btn => {
-          const active = btn.dataset.target === targetId;
-          btn.classList.toggle("is-active", active);
-          btn.setAttribute("aria-selected", active ? "true" : "false");
+        pills.forEach(b => {
+          const on = b.dataset.target === id;
+          b.classList.toggle("is-active", on);
+          b.setAttribute("aria-selected", on ? "true" : "false");
         });
       }
 
-      // if reduced motion is set, pause video on load
-      if (prefersLessMotion) {
-        const vid = document.getElementById("media-fab12");
-        if (vid) vid.pause();
-      }
-
-      // wire up pills
-      pills.forEach(btn => {
-        btn.addEventListener("click", () => show(btn.dataset.target));
-      });
+      if (reduce) document.getElementById("media-fab12")?.pause();
+      pills.forEach(b => b.addEventListener("click", () => show(b.dataset.target)));
     })();
   </script>
 </body>

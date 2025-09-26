@@ -1,65 +1,64 @@
+<!-- 
+// Author: Alberto Gonzalez
+// Started:  03/06/2025
+// Updated:  09/26/2025
+// Filename: BCaboutme.html
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
-    Author: Alberto Gonzalez
-    Date:   03/06/2025
-    Updated: 08/20/2025
-    Filename: BCaboutme.html
-  -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About • Bevil's Custom</title>
 
-  <!-- Global site theme -->
   <link href="BCstylesheet.css" rel="stylesheet" />
-  <!-- About page tweaks -->
   <link href="BCaboutme.css" rel="stylesheet" />
+  <script src="BCnav.js?v=1" defer></script>
 </head>
 <body>
-
-  <!-- Header with logo + nav (same as other pages) -->
-  <header>
+  <header class="site-header">
     <div class="logo">
       <img src="logo.jpg" alt="Bevil's Custom Fabrication logo" />
       <span class="brand">Bevil's Custom Fabrication</span>
     </div>
-    <nav>
-      <ul>
+
+    <nav class="primary-nav" aria-label="Primary">
+      <button class="burger" type="button" aria-label="Open menu" aria-controls="siteMenu" aria-expanded="false">
+        <span class="burger-bar" aria-hidden="true"></span>
+        <span class="burger-bar" aria-hidden="true"></span>
+        <span class="burger-bar" aria-hidden="true"></span>
+      </button>
+      <ul class="nav-list">
         <li><a href="index.html">Home</a></li>
         <li><a href="BCservices.html">Services</a></li>
-        <li><a href="BCaboutme.html">About</a></li>
+        <li><a href="BCaboutme.html" aria-current="page">About</a></li>
         <li><a href="BCcontactus.html">Contact</a></li>
       </ul>
     </nav>
   </header>
+
+  <div id="siteMenu" class="site-menu" aria-hidden="true">
+    <div class="site-menu__bg" data-close="1"></div>
+    <nav class="site-menu__panel" aria-label="Mobile">
+      <button class="site-menu__close" type="button" aria-label="Close menu (Esc)" data-close="1">×</button>
+      <ul class="site-menu__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="BCservices.html">Services</a></li>
+        <li><a href="BCaboutme.html" aria-current="page">About</a></li>
+        <li><a href="BCcontactus.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
 
   <main class="container about-wrap">
     <section class="card bio-card">
       <h1>About Caleb Bevil</h1>
 
       <div class="bio-container">
-        <p>
-          Caleb Bevil's journey is rooted in a rich family legacy of craftsmanship and hard work.
-          Growing up with a grandfather who was a skilled gunsmith, Caleb was exposed to metalworking
-          and hands-on craftsmanship from an early age. His grandfather's influence sparked a passion
-          for metalwork that Caleb has nurtured since the age of 13, primarily through self-teaching
-          and hands-on experience.
-        </p>
-
-        <p>
-          Caleb's career path has been as diverse as his skill set. He has spent time working on oil
-          rigs as a derrick rigger, where he honed his expertise in heavy-duty equipment and safety
-          procedures. His work in this demanding environment has given him a deep understanding of the
-          importance of precision, dedication, and teamwork.
-        </p>
-
-        <p>
-          Outside of his professional achievements, Caleb is a proud father and husband. He is supported
-          by an amazing son and wife, who continue to inspire and motivate him every day. Caleb's
-          commitment to his craft, his family, and his continuous growth as both a professional and an
-          individual defines the foundation of his life.
-        </p>
+        <p>Caleb Bevil's journey is rooted in a rich family legacy of craftsmanship and hard work. Growing up with a grandfather who was a skilled gunsmith, Caleb was exposed to metalworking and hands-on craftsmanship from an early age. His grandfather's influence sparked a passion for metalwork that Caleb has nurtured since the age of 13, primarily through self-teaching and hands-on experience.</p>
+        <p>Caleb's career path has been as diverse as his skill set. He has spent time working on oil rigs as a derrick rigger, where he honed his expertise in heavy-duty equipment and safety procedures. His work in this demanding environment has given him a deep understanding of the importance of precision, dedication, and teamwork.</p>
+        <p>Outside of his professional achievements, Caleb is a proud father and husband. He is supported by an amazing son and wife, who continue to inspire and motivate him every day. Caleb's commitment to his craft, his family, and his continuous growth as both a professional and an individual defines the foundation of his life.</p>
       </div>
     </section>
   </main>
@@ -67,6 +66,5 @@
   <footer>
     <p>&copy; 2025 Bevil's Custom Fabrication. All rights reserved.</p>
   </footer>
-
 </body>
 </html>
