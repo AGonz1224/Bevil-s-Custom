@@ -1,44 +1,69 @@
 /* About page tweaks (inherits BCstylesheet.css theme) */
-/* Author: Alberto Gonzalez | Updated: 08/20/2025 */
+/* Author: Alberto Gonzalez | Updated: 10/15/2025 */
 
+/* Center the content on wide screens no matter what the global .container does */
 .about-wrap {
-    max-width: 1000px;
-  }
-  
-  .bio-card {
-    max-width: 900px;
-    margin: 20px auto;
-  }
-  
-  .bio-card h1 {
-    color: #39FF14;       /* neon accent heading */
-    margin-bottom: 12px;
-  }
-  
-  .bio-container {
-    text-align: left;
-    font-size: 18px;
-    line-height: 1.7;
-    color: #f2f2f2;
-  }
-  
-  .bio-container p + p {
-    margin-top: 14px;     /* comfortable paragraph spacing */
-  }
-  
-  /* Optional: add a subtle divider under the heading */
-  .bio-card h1::after {
-    content: "";
-    display: block;
-    height: 2px;
-    width: 80px;
-    background: #39FF14;
-    margin-top: 10px;
-    border-radius: 2px;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .bio-container { font-size: 16px; }
-  }
-  
+  width: 100%;
+  display: flex;              /* override any grid/flex from global container */
+  justify-content: center;    /* centers the card horizontally */
+  padding: 0 20px;            /* breathing room on small screens */
+  box-sizing: border-box;
+}
+
+.bio-card {
+  width: 100%;
+  max-width: 900px;
+  margin: 24px auto;          /* keep it centered even if parent styles change */
+}
+
+/* --- Logo styling (bigger on desktop) --- */
+.about-logo {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.about-logo img {
+  width: 220px;               /* larger logo on desktop */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.4); /* subtle neon glow */
+}
+
+/* --- Heading styling --- */
+.bio-card h1 {
+  color: #39FF14;             /* neon accent heading */
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.bio-card h1::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 80px;
+  background: #39FF14;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* --- Text section --- */
+.bio-container {
+  text-align: left;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #f2f2f2;
+}
+
+.bio-container p + p {
+  margin-top: 14px;           /* comfortable paragraph spacing */
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 1024px) {
+  .about-logo img { width: 180px; }
+}
+
+@media (max-width: 768px) {
+  .bio-container { font-size: 16px; }
+  .about-logo img { width: 140px; }  /* scale down on phones */
+}
